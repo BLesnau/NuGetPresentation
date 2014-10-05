@@ -17,5 +17,5 @@
 class _declspec(dllexport) SampleNativePackageApp
 {
 public:
-   void ShowMessage() { AfxMessageBox( L"SampleNativePackage Version 2" ); }
+   void ShowMessage() { AfxMessageBox( L"SampleNativePackage Version 1" ); }
 };

@@ -21,6 +21,9 @@ namespace DotNetApp
          //var langString = new CultureInfo( topLanguage.Language.Code ).DisplayName;
 
          //languageTextBox.Content = langString;
+
+         //var sample = new SampleDotNetPackage.SampleDotNetPackage();
+         //sample.ShowMessage();
       }
    }
 }

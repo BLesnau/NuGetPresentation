@@ -1,7 +1,7 @@
 nuget {
    nuspec {
       id = SampleNativePackage;
-      version : 2.0.0.0;
+      version : 1.0.0.0;
       title: Sample Native NuGet Package;
       authors: {TechSmith Corporation};
       owners: {TechSmith Corporation};
