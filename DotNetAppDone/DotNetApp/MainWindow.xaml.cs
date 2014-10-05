@@ -17,7 +17,7 @@ namespace DotNetApp
 
       private void Button_Click( object sender, RoutedEventArgs e )
       {
-         var languages = Detector.DetectLanguage(inputTextBox.Text);
+         var languages = Detector.DetectLanguage( inputTextBox.Text );
          var topLanguage = languages.OrderBy( l => l.Distance ).First();
          var langString = new CultureInfo( topLanguage.Language.Code ).DisplayName;
 
