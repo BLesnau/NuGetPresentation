@@ -1,0 +1,55 @@
+nuget {
+   nuspec {
+      id = SampleNativePackage;
+      version : 2.0.0.0;
+      title: Sample Native NuGet Package;
+      authors: {TechSmith Corporation};
+      owners: {TechSmith Corporation};
+      licenseUrl: "http://www.apache.org/licenses/LICENSE-2.0";
+      iconUrl: "http://www.techsmith.com/favicon.ico";
+      requireLicenseAcceptance:false;
+      summary:Sample Native NuGet Package;
+      description: @"This is for the ReCon presentation!";
+      releaseNotes: "Just a sample";
+      projectUrl: "https://www.techsmith.com";
+      copyright: Copyright (c) 2013-2014 TechSmith Corporation. All rights reserved.;
+      tags: { sample, native };
+   };
+
+   files {
+      include: { *.h };
+
+      // The release here works for any config that contains release
+      // Examples : Release ENU,  RELEASE-ENU,  Release DEU
+      [x86,v120,release] { 
+         lib:     { Release\*.lib; }
+         symbols: { Release\*.pdb; }
+         bin:     { Release\*.dll; }
+      };
+
+      // The debug here works for any config that contains debug
+      // Examples : Debug ENU,  DEBUG-ENU,  Debug DEU
+      [x86,v120,debug] { 
+         lib:       { Debug\*.lib;  }
+         symbols:   { Debug\*.pdb; }
+         bin:       { Debug\*.dll; }
+      };
+   };
+
+   props {
+      // Additional declarations to insert into consuming projects before most of the
+      // project settings. (These may be modified in visual studio by a developer
+      // consuming this package.)
+      // This node is typically not needed for most packages and may be omitted.
+   }
+
+   targets {
+      // Additional declarations to insert into consuming projects after most of the
+      // project settings. (These may NOT be modified in visual studio by a developer
+      // consuming this package.)
+      // This node is often used to set defines that are required that must be set by
+      // the consuming project in order to correctly link to the libraries in this
+      // package.  Such defines may be set either globally or only set under specific
+      // conditions.
+    }
+}

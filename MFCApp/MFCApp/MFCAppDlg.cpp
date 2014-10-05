@@ -7,6 +7,7 @@
 #include "MFCAppDlg.h"
 #include "afxdialogex.h"
 //#include <TSCUTl\TSCUtlWndVersion.h>
+//#include <SampleNativePackage.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -107,4 +108,7 @@ void CMFCAppDlg::OnBnClickedButton1()
    {
    AfxMessageBox( L"Unknown OS" );
    }*/
+
+   /*auto sample = SampleNativePackageApp();
+   sample.ShowMessage();*/
 }
