@@ -41,7 +41,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <NuGetPackageImportStamp>bc20e765</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>93d05833</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -137,13 +137,28 @@
     <ResourceCompile Include="MFCApp.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="res\MFCApp.rc2" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\MFCApp.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\boost.1.56.0.0\build\native\boost.targets" Condition="Exists('packages\boost.1.56.0.0\build\native\boost.targets')" />
+    <Import Project="packages\CrossPlatformTSCReg.1.0.2.0\build\native\CrossPlatformTSCReg.targets" Condition="Exists('packages\CrossPlatformTSCReg.1.0.2.0\build\native\CrossPlatformTSCReg.targets')" />
+    <Import Project="packages\TSCDebugHelpers.1.0.0.0\build\native\TSCDebugHelpers.targets" Condition="Exists('packages\TSCDebugHelpers.1.0.0.0\build\native\TSCDebugHelpers.targets')" />
+    <Import Project="packages\TSCUtl.1.0.0.2\build\native\TSCUtl.targets" Condition="Exists('packages\TSCUtl.1.0.0.2\build\native\TSCUtl.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\boost.1.56.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\boost.1.56.0.0\build\native\boost.targets'))" />
+    <Error Condition="!Exists('packages\CrossPlatformTSCReg.1.0.2.0\build\native\CrossPlatformTSCReg.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\CrossPlatformTSCReg.1.0.2.0\build\native\CrossPlatformTSCReg.targets'))" />
+    <Error Condition="!Exists('packages\TSCDebugHelpers.1.0.0.0\build\native\TSCDebugHelpers.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\TSCDebugHelpers.1.0.0.0\build\native\TSCDebugHelpers.targets'))" />
+    <Error Condition="!Exists('packages\TSCUtl.1.0.0.2\build\native\TSCUtl.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\TSCUtl.1.0.0.2\build\native\TSCUtl.targets'))" />
+  </Target>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties RESOURCE_FILE="MFCApp.rc" />

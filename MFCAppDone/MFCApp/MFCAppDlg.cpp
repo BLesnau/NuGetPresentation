@@ -6,7 +6,9 @@
 #include "MFCApp.h"
 #include "MFCAppDlg.h"
 #include "afxdialogex.h"
+#include <TSCUtl\TSCUtlWndVersion.h>
 //#include <TSCUTl\TSCUtlWndVersion.h>
+//#include <TSCUtl\TSCUtlWnd.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -91,20 +93,20 @@ HCURSOR CMFCAppDlg::OnQueryDragIcon()
 
 void CMFCAppDlg::OnBnClickedButton1()
 {
-   /*if (TSCUtl::TSCWindowsVersion::GetWindowsVersion() == TSCUtl::TSCWindowsVersion::Win7)
+   if (TSCUtl::TSCWindowsVersion::GetWindowsVersion() == TSCUtl::TSCWindowsVersion::Win7)
    {
-   AfxMessageBox( L"Windows 7" );
+      AfxMessageBox( L"Windows 7" );
    }
    else if (TSCUtl::TSCWindowsVersion::GetWindowsVersion() == TSCUtl::TSCWindowsVersion::Win8)
    {
-   AfxMessageBox( L"Windows 8" );
+      AfxMessageBox( L"Windows 8" );
    }
    else if (TSCUtl::TSCWindowsVersion::GetWindowsVersion() == TSCUtl::TSCWindowsVersion::Win8_1)
    {
-   AfxMessageBox( L"Windows 8.1" );
+      AfxMessageBox( L"Windows 8.1" );
    }
    else
    {
-   AfxMessageBox( L"Unknown OS" );
-   }*/
+      AfxMessageBox( L"Unknown OS" );
+   }
 }
